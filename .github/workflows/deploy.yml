@@ -23,8 +23,6 @@ jobs:
     - name: Deploy to Server
       run: |
         rsync -avz --delete \
-        --exclude=".git" \
-        --exclude=".github" \
         -e "ssh -p 8022 -i ~/.ssh/tes_server_polindra" \
         ./ \
         ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ secrets.DEPLOY_PATH }}
